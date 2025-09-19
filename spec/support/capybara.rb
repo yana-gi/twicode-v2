@@ -14,7 +14,7 @@ end
 Capybara.register_driver :selenium_chrome_headless do |app|
   # Use chromium-driver path explicitly
   Webdrivers::Chromedriver.required_version = nil
-  
+
   options = Selenium::WebDriver::Chrome::Options.new
   options.binary = '/usr/bin/chromium'
   options.add_argument('--headless')
