@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2021_11_21_052448) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.string "title", default: "", null: false
     t.bigint "language_id"
+    t.string "title", default: "", null: false
     t.index ["language_id"], name: "index_code_on_language_id"
     t.index ["user_id"], name: "index_code_on_user_id"
   end

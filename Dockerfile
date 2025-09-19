@@ -9,6 +9,16 @@ RUN apt-get update -qq && apt-get install -y \
     libpq-dev \
     nodejs \
     postgresql-client \
+    # For headless Chrome
+    wget \
+    gnupg \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Chromium for headless testing
+RUN apt-get update -qq && apt-get install -y \
+    chromium \
+    chromium-driver \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
