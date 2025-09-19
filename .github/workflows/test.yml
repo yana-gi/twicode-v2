@@ -22,6 +22,7 @@ jobs:
       RAILS_ENV: test
       DATABASE_URL: "postgres://postgres:postgres@localhost/twicode_test"
       TZ: '/usr/share/zoneinfo/Asia/Tokyo'
+      NODE_OPTIONS: "--openssl-legacy-provider"
 
     services:
       postgres:
