@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Code', type: :system do
   let!(:login_user) { FactoryBot.create(:user, uid: '123456') }
   let!(:user_a) { FactoryBot.create(:user, uid: '111111') }
+  let!(:ruby_language) { FactoryBot.create(:language, name: 'Ruby') }
 
   before do
     mock_twitter!
@@ -50,9 +51,22 @@ RSpec.describe 'Code', type: :system do
     end
 
     describe 'language' do
-      before { visit new_code_path }
-      it '最後に選択した言語が表示されていること' do
-        expect(page).to have_selector '#code_language', text: 'Ruby'
+      context '最後に選択した言語がある場合' do
+        before do
+          # まずRubyでコードを作成
+          visit new_code_path
+          select 'Ruby', from: 'code_language'
+          fill_in 'code_body', with: 'test'
+          click_on '画像を作成する'
+          expect(page).to have_content '画像を作成しました'
+
+          # 新しいコード作成画面に再度アクセス
+          visit new_code_path
+        end
+
+        it '最後に選択した言語が表示されていること' do
+          expect(page).to have_selector('#code_language option[selected="selected"]', text: 'Ruby')
+        end
       end
     end
   end
