@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :code do
     body { 'test' }
-    language_id { 1 }
+    language { Language.find_or_create_by(name: 'Ruby') }
     user
     after(:build) do |code|
       code.attach_blob(image_data_url)
