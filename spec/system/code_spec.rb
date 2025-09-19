@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Code', type: :system do
   let!(:login_user) { FactoryBot.create(:user, uid: '123456') }
   let!(:user_a) { FactoryBot.create(:user, uid: '111111') }
-  let!(:ruby_language) { FactoryBot.create(:language, :ruby) }
+  let!(:ruby_language) { Language.find_or_create_by(name: 'Ruby') }
 
   before do
     mock_twitter!
