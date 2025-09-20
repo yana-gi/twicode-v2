@@ -31,6 +31,7 @@ class CodeController < ApplicationController
     if @code.save
       redirect_to @code, notice: '画像を作成しました！「Tweetする」ボタンからCodeを共有しよう'
     else
+      @selected_language = code_language || Language.all.order(:name).first&.name
       render :new, status: :unprocessable_entity
     end
   end
