@@ -25,7 +25,7 @@ RSpec.describe 'Code', type: :system do
     end
     context 'CodeのBodyが空文字ではない場合' do
       before do
-        select 'Ruby', from: 'code[language]'
+        select 'Ruby', from: 'code_language'
         fill_in 'code[body]', with: 'test'
         click_on '画像を作成する'
       end
@@ -39,7 +39,7 @@ RSpec.describe 'Code', type: :system do
     describe 'title' do
       context 'Codeのtitleが空文字の場合' do
         before do
-          select 'Ruby', from: 'code[language]'
+          select 'Ruby', from: 'code_language'
           fill_in 'code[body]', with: 'test'
           click_on '画像を作成する'
           expect(page).to have_content '画像を作成しました'
@@ -55,7 +55,7 @@ RSpec.describe 'Code', type: :system do
         before do
           # まずRubyでコードを作成
           visit new_code_path
-          select 'Ruby', from: 'code[language]'
+          select 'Ruby', from: 'code_language'
           fill_in 'code[body]', with: 'test'
           click_on '画像を作成する'
           expect(page).to have_content '画像を作成しました'
