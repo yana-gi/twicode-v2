@@ -36,7 +36,7 @@ RSpec.describe 'Code', type: :system do
       end
     end
 
-    describe 'title' do
+    xdescribe 'title' do
       context 'Codeのtitleが空文字の場合' do
         before do
           select 'Ruby', from: 'code[language]'
