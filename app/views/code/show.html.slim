@@ -14,10 +14,10 @@
           = @code.title
       .code-meta-item.icon-text
         span.icon.is-medium.mr-2
-          = image_tag @code.user.twitter_icon, class: 'a-user-icon'
+          = image_tag @code.user.google_icon, class: 'a-user-icon'
         span
           = link_to user_code_index_path(@code.user.id), class: 'user-code-index-link has-text-weight-bold' do
-            = @code.user.twitter_id
+            = @code.user.google_id
       .code-meta-item.icon-text
         span.icon
           i.fas.fa-code

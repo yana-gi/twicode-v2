@@ -5,15 +5,15 @@ class User < ApplicationRecord
 
   def self.find_or_create_from_auth_hash(auth_hash)
     uid = auth_hash[:uid]
-    twitter_id = auth_hash[:info][:nickname]
-    twitter_name = auth_hash[:info][:name]
-    twitter_icon = auth_hash[:info][:image]
+    google_id = auth_hash[:info][:email]
+    google_name = auth_hash[:info][:name]
+    google_icon = auth_hash[:info][:image]
 
     find_or_create_by(uid: uid) do |user|
       user.uid = uid
-      user.twitter_id = twitter_id
-      user.twitter_name = twitter_name
-      user.twitter_icon = twitter_icon
+      user.google_id = google_id
+      user.google_name = google_name
+      user.google_icon = google_icon
     end
   end
 end
