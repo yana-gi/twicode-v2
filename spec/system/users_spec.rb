@@ -4,22 +4,22 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
   before do
-    mock_twitter!
+    mock_google_oauth2!
   end
 
   describe 'ログイン処理' do
     context '認証が成功した時' do
       it 'ログインができる' do
         visit root_path
-        find_link('TwiCode を使ってみる', href: '/auth/twitter').click
+        find_link('TwiCode を使ってみる', href: '/auth/google_oauth2').click
         expect(page).to have_content('ログインしました')
       end
     end
     context '認証が失敗した時' do
-      before { mock_twitter_failure! }
+      before { mock_google_oauth2_failure! }
       it 'ログインができない' do
         visit root_path
-        find_link('TwiCode を使ってみる', href: '/auth/twitter').click
+        find_link('TwiCode を使ってみる', href: '/auth/google_oauth2').click
         expect(page).to have_content('キャンセルしました')
       end
     end
@@ -28,7 +28,7 @@ RSpec.describe 'Users', type: :system do
   describe 'ログアウト処理' do
     before do
       visit root_path
-      find_link('TwiCode を使ってみる', href: '/auth/twitter').click
+      find_link('TwiCode を使ってみる', href: '/auth/google_oauth2').click
       find('.logout-link').click
     end
     it 'ログアウトができること' do
@@ -50,7 +50,7 @@ RSpec.describe 'Users', type: :system do
     context 'ログインしている場合' do
       before do
         visit root_path
-        find_link('TwiCode を使ってみる', href: '/auth/twitter').click
+        find_link('TwiCode を使ってみる', href: '/auth/google_oauth2').click
       end
       it 'Homeに新規作成ボタンが表示されること' do
         expect(page).to have_content('新しくコードを投稿する')

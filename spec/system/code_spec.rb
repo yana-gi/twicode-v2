@@ -8,9 +8,9 @@ RSpec.describe 'Code', type: :system do
   let!(:ruby_language) { Language.find_or_create_by(name: 'Ruby') }
 
   before do
-    mock_twitter!
+    mock_google_oauth2!
     visit root_path
-    find_link('TwiCode を使ってみる', href: '/auth/twitter').click
+    find_link('TwiCode を使ってみる', href: '/auth/google_oauth2').click
   end
 
   describe '新規作成' do
@@ -125,7 +125,7 @@ RSpec.describe 'Code', type: :system do
     end
 
     it 'ユーザー名が表示されること' do
-      expect(page).to have_content 'Mock Userの投稿一覧'
+      expect(page).to have_content 'mockuser@example.comの投稿一覧'
     end
     it '画像をクリックすると詳細画面に遷移すること' do
       find('.code-image').click
