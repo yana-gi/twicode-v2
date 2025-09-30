@@ -6,10 +6,10 @@ RSpec.describe User, type: :model do
   describe '.find_or_create_from_auth_hash' do
     let(:auth_hash) do
       {
-        provider: 'twitter',
+        provider: 'google_oauth2',
         uid: 'uid',
         info: {
-          nickname: 'twicode',
+          email: 'twicode@example.com',
           name: 'TwiCode',
           image: 'http://example.com/twicode.jpg'
         }
@@ -20,9 +20,9 @@ RSpec.describe User, type: :model do
       it '引数で設定した属性のUserオブジェクトが返ること' do
         user = User.find_or_create_from_auth_hash(auth_hash)
         expect(user.uid).to eq 'uid'
-        expect(user.twitter_id).to eq 'twicode'
-        expect(user.twitter_name).to eq 'TwiCode'
-        expect(user.twitter_icon).to eq 'http://example.com/twicode.jpg'
+        expect(user.google_id).to eq 'twicode@example.com'
+        expect(user.google_name).to eq 'TwiCode'
+        expect(user.google_icon).to eq 'http://example.com/twicode.jpg'
         expect(user).to be_persisted
       end
 

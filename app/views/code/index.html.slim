@@ -1,10 +1,10 @@
-- content_for(:html_title) { "#{@user.twitter_id} の投稿一覧" }
+- content_for(:html_title) { "#{@user.google_id} の投稿一覧" }
 
 .index-code
   h1
     .icon-text
       span.icon.is-large.mr-2
-        = image_tag @user.twitter_icon, class: 'a-user-icon m-1'
+        = image_tag @user.google_icon, class: 'a-user-icon m-1'
       span.is-size-5
-        = "#{@user.twitter_id}の投稿一覧"
+        = "#{@user.google_id}の投稿一覧"
   == render 'code_list', code_list: @code
