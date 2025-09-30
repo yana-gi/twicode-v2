@@ -49,6 +49,7 @@ RSpec.describe 'Users', type: :system do
     end
     context 'ログインしている場合' do
       before do
+        FactoryBot.create(:language, :ruby)
         visit root_path
         find_link('TwiCode を使ってみる', href: '/auth/google_oauth2').click
       end
