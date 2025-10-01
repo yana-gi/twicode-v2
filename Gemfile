@@ -5,14 +5,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.6'
 
-gem 'bootsnap', '>= 1.4.4', require: false
-gem 'jbuilder', '~> 2.7'
-gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.0'
+gem 'bootsnap', '~> 1.9.1', require: false
+gem 'jbuilder', '~> 2.11'
+gem 'pg', '~> 1.2'
+gem 'puma', '~> 5.5'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
-gem 'sass-rails', '>= 6'
-gem 'turbolinks', '~> 5'
-gem 'webpacker', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
+gem 'turbolinks', '~> 5.2'
+gem 'webpacker', '~> 5.4'
 
 # not default
 gem 'kaminari'
@@ -35,11 +35,11 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.3'
-  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'listen', '~> 3.7'
+  gem 'rack-mini-profiler', '~> 2.3'
   gem 'slim_lint'
   gem 'spring'
-  gem 'web-console', '>= 4.1.0'
+  gem 'web-console', '~> 4.1'
 
   # not default
   gem 'rubocop-fjord', require: false
@@ -48,8 +48,8 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
+  gem 'capybara', '~> 3.35'
+  gem 'selenium-webdriver', '~> 3.142'
   gem 'webdrivers'
 end
 
