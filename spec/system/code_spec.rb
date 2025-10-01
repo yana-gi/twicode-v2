@@ -14,7 +14,10 @@ RSpec.describe 'Code', type: :system do
   end
 
   describe '新規作成' do
-    before { visit new_code_path }
+    before do
+      visit new_code_path
+      expect(page).to have_selector('form')
+    end
 
     context 'CodeのBodyが空文字の場合' do
       before { click_on '画像を作成する' }
