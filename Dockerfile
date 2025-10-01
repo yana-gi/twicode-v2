@@ -1,4 +1,4 @@
-FROM ruby:3.0.2
+FROM ruby:3.2.6
 
 # Install Node.js 16.x
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
@@ -43,9 +43,6 @@ RUN npm install
 
 # Copy the rest of the application
 COPY . .
-
-# Precompile assets (if needed)
-RUN bundle exec rails assets:precompile RAILS_ENV=test
 
 # Expose port
 EXPOSE 3000
